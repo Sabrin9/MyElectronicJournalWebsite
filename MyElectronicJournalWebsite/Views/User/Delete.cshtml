@@ -1,0 +1,73 @@
+﻿@model MyElectronicJournalWebsite.Models.User
+
+@{
+    ViewBag.Title = "Удаление пользователя";
+}
+
+<h2>Удаление пользователя</h2>
+<hr />
+
+<p class="error">@ViewBag.ErrorMessage</p>
+
+<h3>Вы действительно хотите удалить данного пользователя?</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            <label class="control-label col-sm-2">Имя:</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            <label class="control-label col-sm-2">Фамилия:</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+
+        <dt>
+            <label class="control-label col-sm-2">Отчество:</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patronimicname)
+        </dd>
+
+        <dt>
+            <label class="control-label col-sm-2">Email:</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            <label class="control-label col-sm-2">Пароль:</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+        <dt>
+            <label class="control-label col-sm-2">Права:</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Role)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+    <div class="btn-group">
+        <input type="submit" value="Удалить" class="btn btn-primary" />
+        @Html.ActionLink("Вернуться к списку пользователей", "Index", new { Model }, new { @class = "btn btn-default btn-large" })
+    </div>
+    }
+</div>
